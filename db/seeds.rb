@@ -6,6 +6,12 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Admin.create!(
+  email: "admin_test@example.com",
+  password: "000000",
+  encrypted_password: "000000"
+  )
+
 10.times do |n|
   Customer.create!(
     email: "test#{n + 1}@example.com",
