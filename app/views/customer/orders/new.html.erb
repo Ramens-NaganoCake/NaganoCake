@@ -1,0 +1,16 @@
+<div class="container">
+ <% if current_customer.cart_items.present? %>
+  <h2>注文情報入力</h2>
+  <%= form_with model: @order, local: true do |f| %> 
+   <h3>支払方法</h3>
+    <%= f.radio_butoon :payment, :"クレジットカード", checked: true %><br>
+    <%= f.radio_butoon :payment, :"銀行振込" %>
+  
+   <h3>お届け先</h3>
+    <%= f.radio_butoon :@delivery_destination(current_user), "ご自身の住所" %>
+    <%= f.label :address, "" %>
+   <%= f.radio_butoon  %>
+  
+  <% end %>
+ <% end %>
+</div>
