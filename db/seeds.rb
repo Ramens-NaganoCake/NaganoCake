@@ -39,4 +39,20 @@ Admin.create!(
     destination: "配送先テスト",
     order_status: "0"
     )
+    
+  ItemOrder.create!(
+    item_id: "#{n + 1}",
+    order_id: "#{n + 1}",
+    quantity: "5",
+    maiking_status: "1",
+    tax_price: "10000",
+    )
+    
+  Item.create!(
+    genre_id: "1",
+    name: "ショートケーキ#{n + 1}",
+    introduction: "美味しいショートケーキ",
+    is_active: "true"
+    )
   end
+  
