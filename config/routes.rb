@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :customers
   devise_for :admins
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  namespace :admins do
+  namespace :admin, path: :admins do
    resources :customers, only: [:show, :index, :edit, :update]
    resources :items
    resources :genres

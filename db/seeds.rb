@@ -12,7 +12,7 @@ Admin.create!(
   encrypted_password: "000000"
   )
 
-10.times do |n|
+15.times do |n|
   Customer.create!(
     email: "test#{n + 1}@example.com",
     encrypted_password: "000000",
