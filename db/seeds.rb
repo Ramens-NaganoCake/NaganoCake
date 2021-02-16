@@ -27,3 +27,16 @@ Admin.create!(
     is_deleted: "true"
     )
   end
+  
+10.times do |n|
+  Order.create!(
+    customer_id: "#{n + 1}",
+    postage: "800",
+    tax_price: "10000",
+    payment: "0",
+    postcode: "0000000",
+    address: "日本",
+    destination: "配送先テスト",
+    order_status: "0"
+    )
+  end

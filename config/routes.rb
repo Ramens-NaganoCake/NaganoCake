@@ -6,7 +6,7 @@ Rails.application.routes.draw do
    resources :customers, only: [:show, :index, :edit, :update]
    resources :items
    resources :genres
-   resources :orders
+   resources :orders, only: [:index, :show, :upate]
    resources :item_orders
  end
  namespace :customers do
