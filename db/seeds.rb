@@ -8,8 +8,8 @@
 
 Admin.create!(
   email: "admin_test@example.com",
-  password: "000000",
-  encrypted_password: "000000"
+  encrypted_password: "000000",
+  password: "000000"
   )
 
 15.times do |n|
@@ -58,5 +58,31 @@ Admin.create!(
       )
   end
 
+Item.create!(
+  genre_id: "1",
+  name: "チョコレートケーキ",
+  introduction: "美味しいチョコレートケーキ",
+  price: "2500",
+  image_id: "sample.jpg",
+  is_active: "true"
+  )
+  
+ItemOrder.create!(
+  item_id: "11",
+  order_id: "1",
+  quantity: "2",
+  maiking_status: "1".to_i,
+  tax_price: "2500",
+  )
+  
+
+Item.create!(
+  genre_id: "1",
+  name: "シュークリーム",
+  introduction: "美味しいシュークリーム",
+  price: "1500",
+  image_id: "sample.jpg",
+  is_active: "true"
+  )
 
 
