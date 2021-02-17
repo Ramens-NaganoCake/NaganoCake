@@ -17,7 +17,7 @@
             <%= order.customer.full_name %>
           </td>
           <td>
-            <%= order.item_orders.all.sum(:quantity) %>
+            <%= order.sum_order_items.to_s(:delimited) %>
           </td>
           <td>
             <%= order.order_status %>

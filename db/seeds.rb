@@ -27,32 +27,36 @@ Admin.create!(
     is_deleted: "true"
     )
   end
-  
+
 10.times do |n|
   Order.create!(
     customer_id: "#{n + 1}",
     postage: "800",
     tax_price: "10000",
-    payment: "0",
+    payment: "0".to_i,
     postcode: "0000000",
     address: "日本",
     destination: "配送先テスト",
-    order_status: "0"
-    )
-    
-  ItemOrder.create!(
-    item_id: "#{n + 1}",
-    order_id: "#{n + 1}",
-    quantity: "5",
-    maiking_status: "1",
-    tax_price: "10000",
+    order_status: "0".to_i
     )
     
   Item.create!(
     genre_id: "1",
     name: "ショートケーキ#{n + 1}",
     introduction: "美味しいショートケーキ",
+    price: "1500",
+    image_id: "sample.jpg",
     is_active: "true"
     )
+    
+    ItemOrder.create!(
+      item_id: "#{n + 1}",
+      order_id: "#{n + 1}",
+      quantity: "5",
+      maiking_status: "1".to_i,
+      tax_price: "10000",
+      )
   end
-  
+
+
+

@@ -4,10 +4,10 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   namespace :admin, path: :admins do
    resources :customers, only: [:show, :index, :edit, :update]
-   resources :items
-   resources :genres
-   resources :orders, only: [:index, :show, :upate]
-   resources :item_orders
+   resources :items, only: [:index, :new, :create, :show, :edit, :update]
+   resources :genres, only: [:index, :create, :edit, :update]
+   resources :orders, only: [:index, :show, :update]
+   resources :item_orders, only: [:update]
  end
  namespace :customers do
    resources :cart_items
