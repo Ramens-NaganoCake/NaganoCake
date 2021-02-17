@@ -1,0 +1,42 @@
+<h2>会員情報編集</h2>
+
+<%= form_with model: @customer, url: customer_customer_update_path, local: true do |f| %>
+  <%= render "customer/shared/error_messages_customer_edit", model: f.object %>
+
+  <div class="field">
+    <%= f.label "名前" %>
+    <%= f.text_field :last_name, autocomplete: "last_name" %>
+    <%= f.text_field :first_name, autocomplete: "first_name" %>
+  </div>
+
+  <div class="field">
+    <%= f.label "フリガナ" %>
+    <%= f.text_field :last_name_kana, autocomplete: "last_name_kana" %>
+    <%= f.text_field :first_name_kana, autocomplete: "first_name_kana" %>
+  </div>
+
+  <div class="field">
+    <%= f.label "郵便番号" %>
+    <%= f.text_field :postcode, autocomplete: "postcode" %>
+  </div>
+
+  <div class="field">
+    <%= f.label "住所" %>
+    <%= f.text_field :address, autocomplete: "address" %>
+  </div>
+
+  <div class="field">
+    <%= f.label "電話番号" %>
+    <%= f.text_field :phone, autocomplete: "phone" %>
+  </div>
+
+  <div class="field">
+    <%= f.label "メールアドレス" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "編集内容を保存", class: "btn btn-success" %>
+    <%= link_to "退会する", customer_customer_leave_path, class: "btn btn-danger" %>
+  </div>
+<% end %>
