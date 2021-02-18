@@ -9,6 +9,12 @@
   </head>
 
   <body>
+    <header>
+      <ur>
+        <li><%= link_to "商品一覧", admin_items_path %></li>
+        <li><%= link_to "ジャンル一覧", admin_genres_path %></li>
+      </ur>
+    </header>
     <%= yield %>
   </body>
 </html>
