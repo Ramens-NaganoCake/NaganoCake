@@ -10,6 +10,12 @@
     email: "admin_test@example.com",
     password: "password"
   )
+  
+  Admin.create!(
+    email: "admin_test1@example.com",
+    password: "000000",
+    encrypted_password: ""
+  )
 
   15.times do |n|
     Customer.create!(
@@ -42,14 +48,14 @@
       name: "ショートケーキ#{n + 1}",
       introduction: "美味しいショートケーキ",
       price: "1500",
-      image_id: "sample.jpg",
+      image_id: "",
       is_active: "true"
     )
     ItemOrder.create!(
       item_id: "#{n + 1}",
       order_id: "#{n + 1}",
       quantity: "5",
-      maiking_status: "1".to_i,
+      maiking_status: "0".to_i,
       tax_price: "10000",
     )
     CartItem.create!(
@@ -58,3 +64,9 @@
       quantity: "5"
     )
   end
+  
+  5.times do |n|
+    Genre.create!(
+       name: "ジャンル#{n + 1}"
+      )
+    end
