@@ -303,7 +303,7 @@ DEPENDENCIES
   font-awesome-sass (~> 5.13)
   jbuilder (~> 2.5)
   jquery-rails
-  kaminari
+  kaminari (~> 1.2.1)
   listen (~> 3.0.5)
   pry-byebug
   puma (~> 3.0)

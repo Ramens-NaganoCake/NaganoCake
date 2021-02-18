@@ -46,5 +46,5 @@ Rails.application.routes.draw do
     get "edit/my_page" => "customers#edit", as: "customer_edit"
     patch "update" => "customers#update", as: "customer_update"
   end
-
+  
 end
