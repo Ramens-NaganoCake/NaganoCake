@@ -1,2 +1,67 @@
-<h1>Customer::Orders#confirm</h1>
-<p>Find me in app/views/customer/orders/confirm.html.erb</p>
+<h2>注文情報確認</h2>
+<div>
+ <table>
+  <thead>
+    <tr>
+        <th>商品名</th>
+        <th>単価（税込）</th>
+        <th>数量</th>
+        <th>小計</th>
+    </tr>
+    </thead>
+    <tbody>
+     <% @cart_items.each do |cart| %>
+      <tr>
+        <td>
+          <%= attachment_image_tag(cart.item, :image, size: "60x50") %>  
+          <%= cart.item.name %>
+        </td>
+        <td>
+          ¥<%= tax_price %>
+        </td>
+        <td><%= cart.quantity %></td>
+        <td>¥<%= tax_price(cart).to_s(:delimite) %></td>
+      </tr>
+     <% end %>
+    </tbody>
+ </table>
+ </div>
+ <div>
+ <table>
+    <tr>
+        <th>送料</th>
+        <td><%= @order.postage %></td>
+    </tr>
+    <tr>
+        <td>商品合計</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>請求金額</td>
+        <td></td>
+    </tr>
+ </table>
+ </div>
+ <div>
+  <table>
+     <tr>
+         <th>支払方法</th>
+         <td><%= order.payment %></td>
+     </tr>
+     <tr>
+         <th>お届け先</th>
+         <td><%= "#{@order.postcode} #{@order.address} #{@order.destination}" %></td>
+     </tr>
+  </table>
+  
+  <div>
+      <%= form_with :@order, url: customers_orders_path, local: true do |f| %>
+        <%= f.hidden_field :postcode %>
+        <%= f.hidden_field :address %>
+        <%= f.hidden_field :destination %>
+        <%= f.hidden_field :payment %>
+        <%= f.hidden_field : %>
+        <%= f.hidden_field : %>
+        <%= f.submit "購入を確定する", class: "btn btn-info" %>
+  </div>
+ </div>

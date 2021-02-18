@@ -1,16 +1,53 @@
 <div class="container">
- <% if current_customer.cart_items.present? %>
+ <%# if current_customer.cart_items.present? %> 
   <h2>注文情報入力</h2>
-  <%= form_with model: @order, local: true do |f| %> 
+  <%= form_with model: @order, url:customer_orders_path, local: true do |f| %> 
    <h3>支払方法</h3>
-    <%= f.radio_butoon :payment, :"クレジットカード", checked: true %><br>
-    <%= f.radio_butoon :payment, :"銀行振込" %>
+   
+    <%= f.radio_button :payment, :"クレジットカード", checked: true %><br>
+    <span>クレジットカード</span>
+    
+    <%= f.radio_button :payment, :"銀行振込" %>
+    <span>銀行振込</span>
   
    <h3>お届け先</h3>
-    <%= f.radio_butoon :@delivery_destination(current_user), "ご自身の住所" %>
-    <%= f.label :address, "" %>
-   <%= f.radio_butoon  %>
-  
+   
+   <div>
+    <%= f.radio_button :addresses, "residence", checked: true %>
+    <span>ご自身の住所</span><br>
+    <%= "#{current_customer.postcode}""#{current_customer.address}" %><br>
+    <%= "#{current_customer.first_name}""#{current_customer.last_name}" %>
+   </div>
+   
+   <div>
+    <%= f.radio_button :addresses,  "registration"%>
+    <span>登録済住所から選択</span><br>
+    <%= f.collection_select(:delivery_destination_id, @delivery_destinations, :id, order_address) %>
+   </div>
+   
+   <div>
+    <%= f.radio_button :addresses, "new_address" %>
+    <span>新しいお届け先</span><br>
+    <table>
+      <tr>
+       <th><%= f.label :"郵便番号（ハイフンなし）" %></th>
+       <td><%= f.text_field :postcode %></td>
+      </tr>
+      <tr>
+       <th><%= f.label :"住所" %></th>
+       <td><%= f.text_field :address %></td>
+      </tr>
+      <tr>
+       <th><%= f.label :"宛名" %></th>
+       <td><%= f.text_field :destination %></td>
+      </tr>
+    </table>
+   </div>
+   <div>
+   <%= f.submit "確認画面へ進む", class: "btn btn-success" %>
+   </div>
   <% end %>
- <% end %>
+ <%# else %>
+  
+ <%# end %>
 </div>
