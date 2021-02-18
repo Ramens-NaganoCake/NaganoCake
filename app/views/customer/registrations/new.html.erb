@@ -35,15 +35,12 @@
   </div>
 
   <div class="field">
-    <%= f.label "電話番号" %>
+    <%= f.label "電話番号(ハイフンなし)" %>
     <%= f.text_field :phone, autocomplete: "phone" %>
   </div>
 
   <div class="field">
     <%= f.label "パスワード(6文字以上)" %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %>
     <%= f.password_field :password, autocomplete: "new-password" %>
   </div>
 
