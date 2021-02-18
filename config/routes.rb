@@ -24,6 +24,7 @@ Rails.application.routes.draw do
     resources :orders, only: [:index, :show, :update]
     resources :item_orders, only: [:update]
     resources :customers, only: [:index, :show, :edit, :update]
+    get "orders/current_user_order/:id" => "orders#current_user_order"
   end
 
   namespace :customer, path: :customers do
