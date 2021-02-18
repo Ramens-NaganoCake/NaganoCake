@@ -13,6 +13,20 @@
  *= require_tree .
  *= require_self
  */
+
+
 @import "bootstrap";
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
+
+.cart-item-quantity-field {
+  width: 70px;
+}
+
+ .pagination {
+  justify-content: center;
+  
+  span {
+      margin-right: 10px;
+  }
+
