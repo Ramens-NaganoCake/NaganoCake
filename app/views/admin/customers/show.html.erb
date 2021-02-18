@@ -44,7 +44,7 @@
         <td class="col-md-2"></td>
         <td class="col-md-10">
           <%= link_to "編集する", edit_admin_customer_path(@customer), class: "btn btn-success mr-5", type: "button" %>
-          <%= link_to "注文履歴一覧を見る", class: "btn", type: "button" %>
+          <%= link_to "注文履歴一覧を見る", admin_path(@customer), class: "btn btn-info", type: "button" %>
         </td>
       </tr>
     </table>

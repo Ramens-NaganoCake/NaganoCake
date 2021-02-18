@@ -2,10 +2,6 @@ class Order < ApplicationRecord
   belongs_to :customer
   has_many :item_orders, dependent: :destroy
 
-  def full_address
-    self.postcode + self.address
-  end
-
   #注文の全ての数量合計
   def sum_order_items
     self.item_orders.all.sum(:quantity)

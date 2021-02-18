@@ -7,6 +7,7 @@ Rails.application.routes.draw do
    resources :items, only: [:index, :new, :create, :show, :edit, :update]
    resources :genres, only: [:index, :create, :edit, :update]
    resources :orders, only: [:index, :show, :update]
+   get "orders/current_user_order/:id" => "orders#current_user_order"
    resources :item_orders, only: [:update]
  end
  namespace :customers do
