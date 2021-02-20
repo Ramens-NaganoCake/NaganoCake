@@ -1,22 +1,19 @@
 require 'rails_helper'
 
-RSpec.describe "Admin::Orders", type: :request do
+RSpec.describe "DeliverDestinations", type: :request do
 
-<<<<<<< HEAD
   describe "GET /index" do
     it "returns http success" do
-      get "/admin/orders/index"
+      get "/deliver_destinations/index"
       expect(response).to have_http_status(:success)
     end
   end
 
-  describe "GET /show" do
+  describe "GET /edit" do
     it "returns http success" do
-      get "/admin/orders/show"
+      get "/deliver_destinations/edit"
       expect(response).to have_http_status(:success)
     end
   end
 
-=======
->>>>>>> origin/develop
 end
