@@ -5,7 +5,7 @@ class Admin::SessionsController < Devise::SessionsController
 
   # before_action :configure_sign_in_params, only: [:create]
 
-  before_action :customer_shut_out
+  #before_action :customer_shut_out
 
 
 
