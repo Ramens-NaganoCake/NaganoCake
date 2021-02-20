@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "Admin::Orders", type: :request do
 
+<<<<<<< HEAD
   describe "GET /index" do
     it "returns http success" do
       get "/admin/orders/index"
@@ -16,4 +17,6 @@ RSpec.describe "Admin::Orders", type: :request do
     end
   end
 
+=======
+>>>>>>> origin/develop
 end

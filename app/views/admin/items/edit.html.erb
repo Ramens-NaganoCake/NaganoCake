@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-9 offset-md-2">
+      <h1>商品編集</h1>
+        <%= form_with model: @item, url: admin_item_path, local: true do |f| %>
+          <%= render 'form_item', f: f %>
+          <%= f.submit '編集する', class: "btn btn-success btn-lg pull-right" %>
+        <% end %>
+    </div>
+  </div>
+</div>
