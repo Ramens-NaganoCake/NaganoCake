@@ -23,4 +23,5 @@ class Order < ApplicationRecord
 	validates :postcode, length: {is: 7}, numericality: { only_integer: true }
 	validates :postage, numericality: { only_integer: true }
 
+
 end

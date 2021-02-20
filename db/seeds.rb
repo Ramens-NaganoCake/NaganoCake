@@ -23,6 +23,11 @@
 #     )
 #   end
 
+Admin.create!(
+  email: "admin_test@example.com",
+  password: "000000"
+  )
+
 9.times do |n|
   Item.create!(
     genre_id: "1",
