@@ -1,3 +1,4 @@
+
 # Additional translations at https://github.com/plataformatec/devise/wiki/I18n
 # Japanese translation for devise
 
@@ -57,3 +58,4 @@ ja:
         subject: 'パスワードの再設定'
       unlock_instructions:
         subject: 'アカウントのロック解除'
+

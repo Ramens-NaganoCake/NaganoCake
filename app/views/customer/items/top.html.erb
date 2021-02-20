@@ -1,7 +1,10 @@
 <div class="container">
   <div class="row">
+    <div class="col-md-10 offset-md-4">
+      <%= image_tag 'nagano-cake.jpeg', size:'500x400' %>
+    </div>
     <div class="col-md-9 offset-md-2">
-    <p class="text-center">
+    <p class="text-center ml-5">
       ようこそ、ながのCAKEへ！<br>
     このサイトは、ケーキ販売のECサイトになります。<br>
     会員でない⽅も商品の閲覧はできますが、<br>
@@ -9,7 +12,7 @@
     </p>
     </div>
 
-    <div class="col-md-9 offset-md-2">
+    <div class="col-md-10 offset-md-2">
     <h3>新着商品</h3>
       <div class="d-flex flex-wrap">
         <% @items.last(4).each do |item| %>

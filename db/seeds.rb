@@ -5,26 +5,35 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+#
 
-  Admin.create!(
-    email: "admin_test@example.com",
-    password: "password"
+
+# 15.times do |n|
+#   Customer.create!(
+#     email: "test#{n + 1}@example2.com",
+#     password: "000000",
+#     first_name: "テスト#{n + 1}",
+#     last_name: "太朗#{n + 1}",
+#     first_name_kana: "テスト#{n + 1}",
+#     last_name_kana: "タロウ#{n + 1}",
+#     postcode: "0000000",
+#     address: "日本ト#{n + 1}",
+#     phone: "0000000000",
+#     is_deleted: false
+#     )
+#   end
+
+9.times do |n|
+  Item.create!(
+    genre_id: "1",
+    name: "チョコケーキ#{n+1}",
+    introduction: "チョコ",
+    price: "3000",
+    image: open("./app/assets/images/no_image.jpg"),
+    is_active: "true"
   )
+end
 
-  15.times do |n|
-    Customer.create!(
-      email: "test#{n + 1}@example.com",
-      password: "password",
-      first_name: "太郎#{n + 1}",
-      last_name: "佐藤#{n + 1}",
-      first_name_kana: "タロウ#{n + 1}",
-      last_name_kana: "サトウ#{n + 1}",
-      postcode: "0000000",
-      address: "日本ト#{n + 1}",
-      phone: "0000000000",
-      is_deleted: "false"
-    )
-  end
 
   10.times do |n|
     Order.create!(
