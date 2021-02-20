@@ -1,7 +1,5 @@
 class Admin::ItemOrdersController < ApplicationController
 
-  before_action :authenticate_admin!
-  
 
   before_action :customer_shut_out
 

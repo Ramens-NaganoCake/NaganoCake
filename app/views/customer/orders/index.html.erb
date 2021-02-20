@@ -1,6 +1,6 @@
 <div class="container">
 <h2 class="head-line">注文履歴一覧</h2>
-        <table class="table table-hover table-bordered table-condensed border-dark">
+        <table class="table table-hover table-bordered table-condensed">
           <thead>
             <tr class="info">
               <th>注文日</th>
@@ -28,7 +28,7 @@
     	           <% end %>
     		        </td>
     		        <td class="text-right">
-    		         <%= (total_price(order.item_orders) + order.postage).to_s(:delimited) %>円
+    		         <%= order.tax_price.to_s(:delimited) %>円
     		        </td>
     		        
     		        <td>
