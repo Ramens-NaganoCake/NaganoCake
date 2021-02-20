@@ -1,4 +1,11 @@
 class Admin::OrdersController < ApplicationController
+<<<<<<< HEAD
+  def index
+  end
+
+  def show
+  end
+=======
   # before_action :authenticate_admin!
 
   def index
@@ -36,4 +43,5 @@ class Admin::OrdersController < ApplicationController
     def order_params
       params.require(:order).permit(:order_status).merge(order_status: params[:order][:order_status].to_i)
     end
+>>>>>>> origin/develop
 end
