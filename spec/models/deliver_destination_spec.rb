@@ -1,5 +1,9 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-RSpec.describe DeliverDestination, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe 'モデルのテスト' do
+  it "有効な配送先の場合は保存されるか" do
+    expect(FactoryBot.build(:deliver_destination)).to be_valid
+  end
 end

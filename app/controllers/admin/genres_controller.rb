@@ -1,4 +1,5 @@
 class Admin::GenresController < ApplicationController
+  before_action :customer_shut_out
 
   def index
     @genres = Genre.all

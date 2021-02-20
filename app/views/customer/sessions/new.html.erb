@@ -1,25 +1,25 @@
-<h2>ログイン</h2>
+<div class="container-xxl mt-5 mx-5">
 
-<h3>会員の方はこちらからログイン</h3>
+  <h2 class="mb-5"><mark>ログイン</mark></h2>
 
-<%= form_with model: @customer, url: customer_session_path, local: true do |f| %>
-  <div class="field">
-    <%= f.label "メールアドレス" %>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <h3 class="mb-3">会員の方はこちらからログイン</h3>
+
+  <div class="deliver-destination-edit row mt-5" style="margin-left: 0; margin-right: 0; padding-left: 0;">
+    <%= form_with model: @customer, url: customer_session_path, class: "col-12", local: true do |f| %>
+      <%= render "customer/shared/error_messages", resource: resource %>
+      <%= f.label "メールアドレス", class: "col-2 mr-3" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "col-2" %>
+      <div class="w-100"></div>
+      <%= f.label "パスワード", class: "col-2 mr-3" %>
+      <%= f.password_field :password, autocomplete: "current-password", class: "col-2" %>
+      <div class="w-100"></div>
+      <%= f.submit "ログイン", class: "btn btn-primary col-2 mt-4 offset-md-2" %>
+    <% end %>
   </div>
 
-  <div class="field">
-    <%= f.label "パスワード" %>
-    <%= f.password_field :password, autocomplete: "current-password" %>
+  <div class="mt-5">
+    <h3>会員登録がお済みでない方</h3>
+    <%= link_to "こちら", new_customer_registration_path %>　から会員登録を行ってください。
   </div>
 
-  <div class="actions">
-    <%= f.submit "ログイン", class: "btn btn-primary" %>
-  </div>
-<% end %>
-
-<h3>会員登録がお済みでない方</h3>
-
-<div>
-  <%= link_to "こちら", new_customer_registration_path %>　から会員登録を行ってください。
 </div>

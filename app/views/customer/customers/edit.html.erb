@@ -17,16 +17,16 @@
       <%= f.text_field :postcode, autocomplete: "postcode", class: "col-2"  %>
       <div class="w-100"></div>
       <%= f.label "住所", class: "col-2 mr-3" %>
-      <%= f.text_field :address, autocomplete: "address", class: "col-4" %>
+      <%= f.text_field :address, autocomplete: "address", class: "col-5" %>
       <div class="w-100"></div>
       <%= f.label "電話番号", class: "col-2 mr-3" %>
       <%= f.text_field :phone, autocomplete: "phone", class: "col-2" %>
       <div class="w-100"></div>
       <%= f.label "メールアドレス", class: "col-2 mr-3" %>
       <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "col-2" %>
-      <div class="actions">
-        <%= f.submit "編集内容を保存", class: "btn btn-success" %>
-        <%= link_to "退会する", customer_customer_leave_path, class: "btn btn-danger" %>
+      <div class="actions mt-4 text-center">
+        <%= f.submit "編集内容を保存", class: "btn btn-success mr-5" %>
+        <%= link_to "退会する", customer_customer_leave_path, class: "btn btn-danger ml-5" %>
       </div>
     <% end %>
   </div>

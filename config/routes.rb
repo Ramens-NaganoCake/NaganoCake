@@ -16,6 +16,7 @@ Rails.application.routes.draw do
 
   get "/" => "customer/items#top", as: "top"
   get "/about" => "customer/items#about", as: "about"
+  get "/customers" => "customer/customers#rule", as: "customer_rule"
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   namespace :admin, path: :admins do
@@ -28,18 +29,19 @@ Rails.application.routes.draw do
   end
 
   namespace :customer, path: :customers do
-
     resources :items, only: [:index, :show]
-
     resources :cart_items, only: [:index, :update, :create, :destroy]
     delete "cart_items" => "cart_items#all_destroy", as: "cart_item_all_destroy"
 
-    resources :orders, only: [:new, :create, :index, :show]
-    get "orders/confirm" => "orders#confirm", as: "order_confirm"
-    get "orders/complete" => "orders#complete", as: "order_complete"
+
+    resources :orders, only: [:new, :create, :index, :show] do
+      collection do
+        post "confirm" 
+        get "complete" 
+      end
+    end
 
     resources :deliver_destinations, only: [:index, :create, :destroy, :edit, :update]
-
     get "my_page" => "customers#show", as: "customer"
     get "leave" => "customers#leave", as: "customer_leave"
     patch "out" => "customers#out", as: "customer_out"
