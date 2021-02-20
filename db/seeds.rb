@@ -10,12 +10,6 @@
     email: "admin_test@example.com",
     password: "password"
   )
-  
-  Admin.create!(
-    email: "admin_test1@example.com",
-    password: "000000",
-    encrypted_password: ""
-  )
 
   15.times do |n|
     Customer.create!(
@@ -70,3 +64,4 @@
        name: "ジャンル#{n + 1}"
       )
     end
+

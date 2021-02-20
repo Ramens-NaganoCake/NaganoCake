@@ -1,10 +1,15 @@
 class Admin::OrdersController < ApplicationController
+
+  before_action :customer_shut_out
+
   before_action :authenticate_admin!
+
+
 
   def index
     @orders = Order.page(params[:page]).per(10)
   end
-  
+
   def current_user_order
     @orders = Order.where(customer_id: params[:id]).page(params[:page]).per(10)
     render action: :index
@@ -36,4 +41,5 @@ class Admin::OrdersController < ApplicationController
     def order_params
       params.require(:order).permit(:order_status).merge(order_status: params[:order][:order_status].to_i)
     end
+
 end

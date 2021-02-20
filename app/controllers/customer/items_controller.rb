@@ -1,4 +1,5 @@
 class Customer::ItemsController < ApplicationController
+  include ApplicationHelper
 
   def index
     @items = Item.all.page(params[:page])

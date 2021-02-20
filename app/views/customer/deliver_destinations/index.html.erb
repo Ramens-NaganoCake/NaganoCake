@@ -6,13 +6,13 @@
     <%= form_with model: @deliver_destination, url: customer_deliver_destinations_path, class: "col-12", local: true do |f| %>
       <%= render "customer/shared/error_messages_deliver_destination", model: f.object %>
       <%= f.label "郵便番号(ハイフンなし)", class: "col-2 mr-3" %>
-      <%= f.text_field :postcode, autocomplete: "postcode", placeholder: "1500041", class: "col-2" %>
+      <%= f.text_field :postcode, autocomplete: "postcode", placeholder: "1500041", class: "col-2 form-ph" %>
       <div class="w-100"></div>
       <%= f.label "住所", class: "col-2 mr-3" %>
-      <%= f.text_field :address, autocomplete: "address", placeholder: "東京都渋谷区神南1-19-11", class: "col-4" %>
+      <%= f.text_field :address, autocomplete: "address", placeholder: "東京都渋谷区神南1-19-11", class: "col-4 form-ph" %>
       <div class="w-100"></div>
       <%= f.label "宛名", class: "col-2 mr-3" %>
-      <%= f.text_field :destination, autocomplete: "destination", placeholder: "山田花子", class: "col-2" %>
+      <%= f.text_field :destination, autocomplete: "destination", placeholder: "山田花子", class: "col-2 form-ph" %>
       <%= f.submit "新規登録", class: "btn btn-success col-2 offset-md-2" %>
     <% end %>
   </div>
@@ -35,7 +35,7 @@
             <td class="border border-dark"><%= deliver_destination.destination %></td>
             <td class="border border-dark text-center">
               <%= link_to "編集する", edit_customer_deliver_destination_path(deliver_destination), class: "btn btn-success" %>
-              <%= link_to "削除する", customer_deliver_destination_path(deliver_destination), method: :delete, class: "btn btn-danger", "data-confirm" => "本当に消しますか？" %>
+              <%= link_to "削除する", customer_deliver_destination_path(deliver_destination), method: :delete, class: "btn btn-danger", "data-confirm" => "本当に削除しますか？" %>
             </td>
           </tr>
         <% end %>

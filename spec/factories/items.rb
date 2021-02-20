@@ -5,6 +5,6 @@ FactoryBot.define do
     introduction { "MyText" }
     price { 1 }
     image_id { "MyString" }
-    is_active { false }
+    is_active { true }
   end
 end
