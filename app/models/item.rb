@@ -1,6 +1,9 @@
 class Item < ApplicationRecord
 
-  validates :is_active, inclusion: { in: [true, false] }
+
+  validates :genre_id, :name, :price, presence: true
+  validates :introduction, length: {maximum: 200}
+  validates :price, numericality: { only_integer: true }
 
   attachment :image
   belongs_to :genre

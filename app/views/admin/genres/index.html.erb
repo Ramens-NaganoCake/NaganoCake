@@ -1,3 +1,11 @@
+<div class="text-danger">
+<% if @genre.errors.any? %>
+   <span class="h4"><%= @genre.errors.count %>errors prohibited this obj from being saved:</span>
+  <% @genre.errors.full_messages.each do |message| %><br>
+     ・<%= message %>
+  <% end %>
+<% end %>
+</div>
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
