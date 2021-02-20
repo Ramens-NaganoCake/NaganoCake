@@ -10,13 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20210215113530) do
-=======
+
 ActiveRecord::Schema.define(version: 2021_02_16_062104) do
-
-
->>>>>>> origin/develop
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -53,10 +48,7 @@ ActiveRecord::Schema.define(version: 2021_02_16_062104) do
     t.string "postcode"
     t.string "address"
     t.string "phone"
-
     t.boolean "is_deleted", default: false
-
-
     t.index ["email"], name: "index_customers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
   end
@@ -92,15 +84,12 @@ ActiveRecord::Schema.define(version: 2021_02_16_062104) do
     t.text "introduction"
     t.integer "price"
     t.string "image_id"
-
     t.boolean "is_active", default: true
-
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "orders", force: :cascade do |t|
-<<<<<<< HEAD
     t.integer  "customer_id"
     t.integer  "postage",      default: 800
     t.integer  "tax_price"
@@ -111,18 +100,7 @@ ActiveRecord::Schema.define(version: 2021_02_16_062104) do
     t.integer  "order_status", default: 0
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
-=======
-    t.integer "customer_id"
-    t.integer "postage"
-    t.integer "tax_price"
-    t.integer "payment"
-    t.string "postcode"
-    t.string "address"
-    t.string "destination"
-    t.integer "order_status"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
->>>>>>> origin/develop
+
   end
 
 end

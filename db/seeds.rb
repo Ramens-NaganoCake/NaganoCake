@@ -66,7 +66,7 @@ end
       name: "ショートケーキ#{n + 1}",
       introduction: "美味しいショートケーキ",
       price: "1500",
-      image_id: "sample.jpg",
+      image_id: "",
       is_active: "true"
     )
     ItemOrder.create!(
