@@ -29,9 +29,7 @@ Rails.application.routes.draw do
   end
 
   namespace :customer, path: :customers do
-
     resources :items, only: [:index, :show]
-
     resources :cart_items, only: [:index, :update, :create, :destroy]
     delete "cart_items" => "cart_items#all_destroy", as: "cart_item_all_destroy"
 
@@ -44,7 +42,6 @@ Rails.application.routes.draw do
     end
 
     resources :deliver_destinations, only: [:index, :create, :destroy, :edit, :update]
-
     get "my_page" => "customers#show", as: "customer"
     get "leave" => "customers#leave", as: "customer_leave"
     patch "out" => "customers#out", as: "customer_out"

@@ -1,5 +1,9 @@
 class Admin::CustomersController < ApplicationController
+
+  before_action :authenticate_admin!
+
   before_action :customer_shut_out
+
 
   def show
     @customer = Customer.find(params[:id])
