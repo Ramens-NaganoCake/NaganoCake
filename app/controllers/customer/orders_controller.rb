@@ -1,4 +1,6 @@
 class Customer::OrdersController < ApplicationController
+  include ApplicationHelper
+  
   before_action :to_confirm, only: [:show]
   before_action :authenticate_customer!
   
@@ -10,6 +12,8 @@ class Customer::OrdersController < ApplicationController
   def confirm
     @cart_items = current_customer.cart_items
     @order = Order.new
+    
+    @order.tax_price = billing(@order)
     
      if params[:order][:addresses] == "residence"
       @order.postcode = current_customer.postcode
@@ -43,7 +47,8 @@ class Customer::OrdersController < ApplicationController
     ItemOrder.create(
       item: cart_item.item,
       order: @order,
-      quantity: cart_item.quantity
+      quantity: cart_item.quantity,
+      tax_price: tax_price(cart_item.item.price)
       )
     end
     
@@ -55,7 +60,6 @@ class Customer::OrdersController < ApplicationController
   
   def index
     @orders = current_customer.orders
-   
   end
   
   def show
@@ -73,7 +77,7 @@ class Customer::OrdersController < ApplicationController
   end
   
   def to_confirm
-    redirect_to customer_cart_items_path if params[:id] == "confirm"
+    redirect_to customer_items_path if params[:id] == "confirm"
   end
   
 end
