@@ -1,3 +1,11 @@
+<div class="text-danger">
+<% if @item.errors.any? %>
+   <span class="h4"><%= @item.errors.count %>errors prohibited this obj from being saved:</span>
+  <% @item.errors.full_messages.each do |message| %><br>
+     ・<%= message %>
+  <% end %>
+<% end %>
+</div>
 <div class="container">
   <div class="row">
     <div class="col-md-9 offset-md-2">
