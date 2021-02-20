@@ -1,6 +1,6 @@
 class Admin::ItemOrdersController < ApplicationController
-  # before_action :authenticate_admin!
-  
+  before_action :customer_shut_out
+
   def update
     item_order = ItemOrder.find(params[:id])
     item_orders = ItemOrder.where(order_id: item_order.order_id)

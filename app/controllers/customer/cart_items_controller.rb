@@ -11,7 +11,7 @@ class Customer::CartItemsController < ApplicationController
   def update
     @cart_item = CartItem.find(params[:id])
     @cart_item.update(quantity: params[:cart_item][:quantity].to_i)
-    flash.now[:success] = "#{@cart_item.item.name}の数量を変更しました。"
+    flash[:notice] = "#{@cart_item.item.name}の数量を変更しました。"
     redirect_to customer_cart_items_path
   end
 
@@ -24,19 +24,19 @@ class Customer::CartItemsController < ApplicationController
     end
     if @cart_item.save
       flash[:notice] = "#{@cart_item.item.name}をカートに追加しました。"
-      redirect_to customer_items_path
+      redirect_to customer_cart_items_path
     else
       @item = Item.find(params[:cart_item][:item_id])
       @cart_item = CartItem.new
       flash[:alert] = "個数を選択してください。"
-      render "customer/products/show"
+      render "customer/items/show"
     end
   end
 
   def destroy
     @cart_item = CartItem.find(params[:id])
     @cart_item.destroy
-    flash.now[:alert] = "#{@cart_item.item.name}を削除しました。"
+    flash[:alert] = "#{@cart_item.item.name}を削除しました。"
     redirect_to customer_cart_items_path
   end
 

@@ -12,6 +12,7 @@ class Customer::DeliverDestinationsController < ApplicationController
     @deliver_destination.customer_id = current_customer.id
     @deliver_destinations = current_customer.deliver_destinations
     if @deliver_destination.save
+      flash[:notice] = "配送先を登録しました。"
       redirect_to customer_deliver_destinations_path
     else
       render :index
@@ -21,6 +22,7 @@ class Customer::DeliverDestinationsController < ApplicationController
   def destroy
     @deliver_destination = DeliverDestination.find(params[:id])
     @deliver_destination.destroy
+    flash[:alert] = "配送先を削除しました。"
     redirect_to customer_deliver_destinations_path
   end
 
@@ -31,6 +33,7 @@ class Customer::DeliverDestinationsController < ApplicationController
   def update
     @deliver_destination = DeliverDestination.find(params[:id])
     if @deliver_destination.update(deliver_destination_params)
+      flash[:notice] = "配送先情報を変更しました。"
       redirect_to customer_deliver_destinations_path
     else
       render :edit

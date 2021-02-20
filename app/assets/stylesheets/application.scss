@@ -19,14 +19,31 @@
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
+.notice {
+  color: green;
+}
+
+.alert {
+  color: red;
+}
+
+.customer-leave {
+  margin-top: 250px;
+}
+
+.form-ph::placeholder {
+  color: #bcbcbc;
+}
+
 .cart-item-quantity-field {
   width: 70px;
 }
 
  .pagination {
   justify-content: center;
-  
+
   span {
       margin-right: 10px;
   }
+ }
 

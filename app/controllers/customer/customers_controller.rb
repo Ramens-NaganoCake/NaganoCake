@@ -1,5 +1,6 @@
 class Customer::CustomersController < ApplicationController
-  before_action :authenticate_customer!
+  before_action :authenticate_customer!, only: [:show, :leave, :out, :edit, :update]
+  before_action :rule_path, only: [:rule]
 
   def show
     @customer = current_customer
@@ -13,7 +14,8 @@ class Customer::CustomersController < ApplicationController
     @customer = current_customer
     @customer.update(is_deleted: true)
     reset_session
-    redirect_to new_customer_registration_path
+    flash[:alert] = "退会処理が完了しました。"
+    redirect_to top_path
   end
 
   def edit
@@ -30,10 +32,19 @@ class Customer::CustomersController < ApplicationController
     end
   end
 
+  def rule
+  end
+
   private
 
   def customer_params
     params.require(:customer).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, :postcode, :address, :phone, :email)
+  end
+
+  def rule_path
+    unless customer_signed_in?
+      redirect_to new_customer_registration_path
+    end
   end
 
 end

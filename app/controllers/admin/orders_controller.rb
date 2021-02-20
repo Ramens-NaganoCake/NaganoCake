@@ -1,10 +1,10 @@
 class Admin::OrdersController < ApplicationController
-  # before_action :authenticate_admin!
+  before_action :customer_shut_out
 
   def index
     @orders = Order.page(params[:page]).per(10)
   end
-  
+
   def current_user_order
     @orders = Order.where(customer_id: params[:id]).page(params[:page]).per(10)
     render action: :index

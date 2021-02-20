@@ -23,6 +23,9 @@
                   ようこそ、<%= current_customer.last_name %> さん
                 </li>
                 <li class="ml-4">
+                  <%= link_to "会員のみなさまへ", customer_rule_path, class: "btn btn-outline-dark" %>
+                </li>
+                <li class="ml-4">
                   <%= link_to "マイページ", customer_customer_path, class: "btn btn-outline-dark" %>
                 </li>
                 <li class="ml-4">
@@ -48,7 +51,7 @@
                   <%= link_to "ジャンル一覧", admin_genres_path, class: "btn btn-outline-dark" %>
                 </li>
                 <li class="ml-4 mr-4">
-                  <%= link_to "ログアウト", admin_orders_path, method: :delete, class: "btn btn-outline-dark" %>
+                  <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn btn-outline-dark" %>
                 </li>
               <% else %>
                 <li class="ml-4">
@@ -70,6 +73,17 @@
       </nav>
 
     </header>
-    <%= yield %>
+
+    <main>
+      <div id="flash-sentence">
+        <% if flash[:notice] %>
+          <p class="notice"><%= flash[:notice] %></p>
+        <% else %>
+          <p class="alert"><%= flash[:alert] %></p>
+        <% end %>
+      </div>
+
+      <%= yield %>
+    </main>
   </body>
 </html>

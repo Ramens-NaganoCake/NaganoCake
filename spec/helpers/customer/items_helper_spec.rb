@@ -10,6 +10,13 @@ require 'rails_helper'
 #     end
 #   end
 # end
+
+
 RSpec.describe Customer::ItemsHelper, type: :helper do
   pending "add some examples to (or delete) #{__FILE__}"
+
+  def tax_price(price)
+  (price * 1.1).floor
+  end
 end
+
