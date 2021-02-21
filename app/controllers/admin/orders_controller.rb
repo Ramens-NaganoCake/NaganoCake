@@ -27,7 +27,7 @@ class Admin::OrdersController < ApplicationController
       end
     end
     @orders = Order.page(params[:page]).per(10)
-    render action: :index
+    redirect_to admin_orders_path
   end
 
   private

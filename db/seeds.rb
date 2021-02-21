@@ -8,20 +8,20 @@
 #
 
 
-# 15.times do |n|
-#   Customer.create!(
-#     email: "test#{n + 1}@example2.com",
-#     password: "000000",
-#     first_name: "テスト#{n + 1}",
-#     last_name: "太朗#{n + 1}",
-#     first_name_kana: "テスト#{n + 1}",
-#     last_name_kana: "タロウ#{n + 1}",
-#     postcode: "0000000",
-#     address: "日本ト#{n + 1}",
-#     phone: "0000000000",
-#     is_deleted: false
-#     )
-#   end
+15.times do |n|
+  Customer.create!(
+    email: "test#{n + 1}@example2.com",
+    password: "000000",
+    first_name: "テスト#{n + 1}",
+    last_name: "太朗#{n + 1}",
+    first_name_kana: "テスト#{n + 1}",
+    last_name_kana: "タロウ#{n + 1}",
+    postcode: "0000000",
+    address: "日本ト#{n + 1}",
+    phone: "0000000000",
+    is_deleted: false
+    )
+  end
 
 Admin.create!(
   email: "admin_test@example.com",
