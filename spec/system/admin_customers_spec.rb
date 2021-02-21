@@ -5,22 +5,38 @@ require 'rails_helper'
 describe '管理者側のCustomerのテスト' do
   let(:admin) { create(:admin) }
 
-  describe 'トップ画面のテスト' do
-    context '表示の確認' do
-      before do
-        sign_in admin
-        visit admin_items_path
-      end
-      it '管理者トップ画面に(admin_items_path)に会員一覧画面へのリンクが表示されているか' do
-        expect(page).to have_link "/admins/customers"
-      end
-      it 'admin_items_pathが"/admins/items"であるか' do
-        expect(current_path).to eq('/admins/items')
-      end
-      it '会員一覧を押すと会員一覧画面に遷移する' do
-        index_link = find_all( 'a' )[1]
-        expect(index_link.native.inner_text).to match("/admins/customers")
-      end
+  describe 'ログインのテスト' do
+    before do
+      visit new_admin_session_path
     end
+    it 'ログインが可能でログイン後商品一覧へ遷移する' do
+      fill_in "admin_email", with: admin.email
+      fill_in "admin_password", with: admin.password
+      click_button 'Log in'
+      expect(current_path).to eq('/admins/items')
+    end
+  end
+
+  describe 'admin_customer画面のテスト' do
+    before do
+      visit new_admin_session_path
+      fill_in "admin_email", with: admin.email
+      fill_in "admin_password", with: admin.password
+      click_button 'Log in'
+    end
+      context '管理者トップの確認' do
+        it 'admin_items_pathが"/admins/items"であるか' do
+          expect(current_path).to eq('/admins/items')
+        end
+        it 'ヘッダの会員一覧から会員一覧画面に遷移する' do
+          click_link '会員一覧'
+          expect(current_path).to eq('/admins/customers')
+        end
+      end
+      context '会員一覧画面の確認' do
+        it '会員詳細画面に遷移する' do
+          
+        end
+      end
   end
 end

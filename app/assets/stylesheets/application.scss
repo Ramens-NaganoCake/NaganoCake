@@ -39,12 +39,50 @@
   width: 70px;
 }
 
- .pagination {
+.pagination {
   justify-content: center;
-   
+
   span {
       margin-right: 10px;
   }
- }
+}
 
+body {
+  background-color: #f7f6e7;
+  color: #333;
+}
+
+// admin-session
+
+.admin-signin {
+  border: 2px solid #f5c500;
+
+  .admin-signin-title {
+    display: inline-block;
+    border-bottom: 3px solid #f5c500;
+  }
+
+  input[type="email"] {
+        width: 300px;
+        height: 40px;
+    }
+
+  input[type="password"] {
+          width: 300px;
+          height: 40px;
+      }
+  input[type="submit"] {
+    width: 200px;
+    height: 40px;
+    background-color: #f5c500;
+    border: none;
+    font-weight: bold;
+    font-size: 18px;
+    transition: .5s;
+    
+    &:hover {
+      background-color: #dcb000;
+    }
+  }
+}
 
