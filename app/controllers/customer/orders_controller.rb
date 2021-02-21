@@ -20,7 +20,7 @@ class Customer::OrdersController < ApplicationController
       @order.address = current_customer.address
       @order.destination = current_customer.last_name + current_customer.first_name
      elsif params[:order][:addresses] == "registration"
-      delivery = DeliverDestination.find(params[:order][:delivery_destination_id]) 
+      delivery = DeliverDestination.find(params[:order][:deliver_destination_id]) 
       @order.postcode = delivery.postcode
       @order.address = delivery.address
       @order.destination = delivery.destination
@@ -39,7 +39,7 @@ class Customer::OrdersController < ApplicationController
     redirect_to complete_customer_orders_path
     
     if params[:order][:delivery] == "1"
-      current_customer.deliver_destination.create(address_params)
+      current_customer.deliver_destinations.create(address_params)
     end
     
     @cart_items = current_customer.cart_items
