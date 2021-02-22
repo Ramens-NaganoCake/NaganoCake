@@ -2,7 +2,7 @@
   <div class="admin-customer-edit pt-5">
     <h4 class="pb-3"><%= @customer.full_name %>さんの会員情報編集</h4>
     <%= form_with(model: @customer, url: admin_customer_path(@customer), local: true) do |f| %>
-      <table class="w-100">
+      <table class="w-100 admin-customer-show">
         <tr class="row pb-3">
           <td class="col-md-2">会員ID</td>
           <td class="col-md-10"><%= @customer.id %></td>
