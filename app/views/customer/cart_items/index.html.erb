@@ -2,7 +2,7 @@
 
   <div class="row" style="margin-left: 0; margin-right: 0;">
     <h3 class="d-inline" style="margin-bottom: 0;">ショッピングカート</h3>
-    <%= link_to "カートを空にする", customer_cart_item_all_destroy_path, method: :delete, class: "btn btn-danger d-inline ml-auto" %>
+    <%= link_to "カートを空にする", customer_cart_item_all_destroy_path, method: :delete, class: "btn btn-danger d-inline ml-auto", "data-confirm" => "カート内の商品を削除してもよろしいですか？"  %>
   </div>
 
   <div class="cart-items-index">
